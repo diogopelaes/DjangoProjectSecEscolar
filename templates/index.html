@@ -1,31 +1,32 @@
 {% extends "base.html" %}
 
-{% block title %}{% if user.is_authenticated %}Bem-vindo - Secretaria Escolar{% else %}Login - Secretaria Escolar{% endif %}{% endblock %}
+{% block title %}{% if user.is_authenticated %}Bem-vindo - Secretaria Escolar{% else %}Login - Secretaria Escolar
+{% endif %}{% endblock %}
 
 {% block content %}
     <div class="row justify-content-center text-danger">
         {{ alerta }}
     </div>
-<div class="row justify-content-center">
-    <div class="col-md-6">
-        {% if user.is_authenticated %}
-            <h2 class="mb-4">Bem-vindo</h2>
-            <p>Olá, {{ user.get_full_name }}!</p>
-        {% else %}
-            <h2 class="mb-4">Login</h2>
-            <form method="POST" action="{% url 'index' %}">
-                {% csrf_token %}
-                <div class="mb-3">
-                    <label for="username" class="form-label">Usuário</label>
-                    <input type="text" class="form-control" id="username" name="username" required>
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Senha</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Entrar</button>
-            </form>
-        {% endif %}
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            {% if user.is_authenticated %}
+                <h2 class="mb-4">Bem-vindo</h2>
+                <p>Olá, {{ user.get_full_name }}!</p>
+            {% else %}
+                <h2 class="mb-4">Login</h2>
+                <form method="POST" action="{% url 'index' %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Usuário</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Entrar</button>
+                </form>
+            {% endif %}
+        </div>
     </div>
-</div>
 {% endblock %}

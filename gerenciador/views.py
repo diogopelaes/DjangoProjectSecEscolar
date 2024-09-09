@@ -1,5 +1,5 @@
-from django.contrib.auth import authenticate, login
-from django.shortcuts import render
+from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import render, redirect
 
 
 # view que renderiza index.html
@@ -16,3 +16,8 @@ def index(request):
         else:
             login(request, user)
     return render(request, 'index.html')
+
+
+def fazer_logout(request):
+    logout(request)
+    return redirect('index')
