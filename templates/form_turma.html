@@ -1,0 +1,32 @@
+<!-- form_turma.html -->
+{% extends 'base.html' %}
+
+{% block title %}Cadastro de Turma{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h2 class="mb-4">Cadastro de Turma</h2>
+        <form method="post" action="">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="numero" class="form-label">Número</label>
+                <input type="number" class="form-control" id="numero" name="numero" required>
+            </div>
+            <div class="mb-3">
+                <label for="letra" class="form-label">Letra</label>
+                <input type="text" class="form-control" id="letra" name="letra" required>
+            </div>
+            <div class="mb-3">
+                <label for="ano" class="form-label">Ano</label>
+                <input type="number" class="form-control" id="ano" name="ano" required>
+            </div>
+            <div class="mb-3">
+                <label for="curso" class="form-label">Curso</label>
+                <input type="text" class="form-control" id="curso" name="curso" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
