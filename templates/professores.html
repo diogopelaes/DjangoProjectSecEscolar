@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Professores{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Lista de Professores</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Disciplina</th>
+                <th>Ativo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for professor in professores %}
+            <tr>
+                <td>{{ professor.nome }}</td>
+                <td>{{ professor.email }}</td>
+                <td>{{ professor.disciplina }}</td>
+                <td>{{ professor.ativo|yesno:"Sim,Não" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

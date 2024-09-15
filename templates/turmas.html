@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Turmas{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Lista de Turmas</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Letra</th>
+                <th>Ano</th>
+                <th>Curso</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for turma in turmas %}
+            <tr>
+                <td>{{ turma.numero }}</td>
+                <td>{{ turma.letra }}</td>
+                <td>{{ turma.ano }}</td>
+                <td>{{ turma.curso }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

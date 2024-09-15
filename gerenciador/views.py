@@ -136,3 +136,30 @@ def form_turma(request):
 
     # Se for GET, apenas renderiza o formulário
     return render(request, 'form_turma.html')
+
+
+@login_required
+def lista_alunos(request):
+    alunos = Aluno.objects.all()
+    context = {
+        'alunos': alunos
+    }
+    return render(request, 'alunos.html', context)
+
+
+@login_required
+def lista_professores(request):
+    professores = Professor.objects.all()
+    context = {
+        'professores': professores
+    }
+    return render(request, 'professores.html', context)
+
+
+@login_required
+def lista_turmas(request):
+    turmas = Turma.objects.all()
+    context = {
+        'turmas': turmas
+    }
+    return render(request, 'turmas.html', context)
