@@ -2,3 +2,4 @@
 .idea/
 /gerenciador/migrations/
 /testes/
+db.sqlite3
